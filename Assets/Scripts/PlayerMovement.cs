@@ -6,12 +6,12 @@ using UnityEngine.EventSystems;
 
 public class TopDownCharacterMover : MonoBehaviour
 {
-    [SerializeField]
-    float moveSpeed = 4f;
+    [SerializeField] float moveSpeed = 4f;
     Vector3 forward, right;
-
+    
     void Update ()
     {
+        
         forward = Camera.main.transform.forward;
         forward.y = 0;
         forward = Vector3.Normalize(forward);
@@ -28,11 +28,6 @@ public class TopDownCharacterMover : MonoBehaviour
             transform.position += heading * moveSpeed * Time.deltaTime; 
         }
        
-    }
-
-    void Attack()
-    {
-        
     }
     
 }
