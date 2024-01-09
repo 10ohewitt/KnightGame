@@ -12,8 +12,6 @@ public class TopDownCharacterMover : MonoBehaviour
 
     void Update ()
     {
-        Block();
-       
         forward = Camera.main.transform.forward;
         forward.y = 0;
         forward = Vector3.Normalize(forward);
@@ -32,13 +30,9 @@ public class TopDownCharacterMover : MonoBehaviour
        
     }
 
-    void Block()
+    void Attack()
     {
-        if (Input.GetButtonDown("Jump"))
-        {
-            Vector3 facing = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            transform.position += facing * 10 * Time.deltaTime;
-        }
+        
     }
     
 }
