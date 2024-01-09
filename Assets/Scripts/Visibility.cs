@@ -9,7 +9,7 @@ public class Visibility : MonoBehaviour
     void Start()
     {
         ren.GetComponent<Renderer>();
-        ren.enabled = true;
+        ren.enabled = false;
     }
 
     // Update is called once per frame
@@ -17,11 +17,11 @@ public class Visibility : MonoBehaviour
     {
         if (Input.GetMouseButton(1))
         {
-            ren.enabled = false;
+            ren.enabled = true;
         }
         else
         {
-            ren.enabled = true;
+            ren.enabled = false;
         }
     }
 }
