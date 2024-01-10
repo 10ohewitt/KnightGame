@@ -7,41 +7,43 @@ namespace Player
         public Animator anim;
         [SerializeField] float moveSpeed = 4f;
         Vector3 forward, right;
+        public GameObject canvas;
     
         void Update ()
         {
-            if (Input.GetAxisRaw("Horizontal") == 0f && Input.GetAxisRaw("Vertical") == 0f)
+            if (canvas.activeInHierarchy == false)
             {
-                anim.SetBool("Walk", false);
-            }
-            else if (anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Idle_Battle"))
-            {
-                anim.SetBool("Walk", true);
-                anim.Play("WalkForwardBattle");
-            }
-        
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Idle_Battle") || 
-                anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.WalkForwardBattle"))
-            {
-                anim = GetComponent<Animator>();
-                forward = Camera.main.transform.forward;
-                forward.y = 0;
-                forward = Vector3.Normalize(forward);
-                right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
-
-                Vector3 direction = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-                if (direction.magnitude > 0.1f)
+                if (Input.GetAxisRaw("Horizontal") == 0f && Input.GetAxisRaw("Vertical") == 0f)
                 {
-                    Vector3 rightMovement = right * moveSpeed * Time.deltaTime * Input.GetAxisRaw("Horizontal");
-                    Vector3 upMovement = forward * moveSpeed * Time.deltaTime * Input.GetAxisRaw("Vertical");
+                    anim.SetBool("Walk", false);
+                }
+                else if (anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Idle_Battle"))
+                {
+                    anim.SetBool("Walk", true);
+                    anim.Play("WalkForwardBattle");
+                }
 
-                    Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
-                    transform.forward = heading;
-                    transform.position += heading * moveSpeed * Time.deltaTime;
+                if (anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Idle_Battle") ||
+                    anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.WalkForwardBattle"))
+                {
+                    anim = GetComponent<Animator>();
+                    forward = Camera.main.transform.forward;
+                    forward.y = 0;
+                    forward = Vector3.Normalize(forward);
+                    right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
+
+                    Vector3 direction = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+                    if (direction.magnitude > 0.1f)
+                    {
+                        Vector3 rightMovement = right * moveSpeed * Time.deltaTime * Input.GetAxisRaw("Horizontal");
+                        Vector3 upMovement = forward * moveSpeed * Time.deltaTime * Input.GetAxisRaw("Vertical");
+
+                        Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
+                        transform.forward = heading;
+                        transform.position += heading * moveSpeed * Time.deltaTime;
+                    }
                 }
             }
-
         }
-    
     }
 }

@@ -6,6 +6,7 @@ namespace Player
     {
         public Animator _anim;
         public Renderer ren;
+        public GameObject canvas;
         void Start()
         {
             ren.GetComponent<Renderer>();
@@ -15,7 +16,10 @@ namespace Player
     
         void Update()
         {
-            Attack();
+            if (canvas.activeInHierarchy == false)
+            {
+                Attack();
+            }
         }
         void Attack()
         {
