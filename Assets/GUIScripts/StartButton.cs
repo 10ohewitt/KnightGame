@@ -1,19 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class StartButton : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    public Button myButton;
     void Start()
     {
-        string clickedButton = null;
-
+        myButton.onClick.AddListener(OnGui);
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnGui()
     {
-        
+        Debug.Log("scene2 loading:");
+        SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
     }
 }
