@@ -7,11 +7,13 @@ namespace Player
         public Animator _anim;
         public Renderer ren;
         public GameObject canvas;
+        public Collider col;
         void Start()
         {
             ren.GetComponent<Renderer>();
             ren.enabled = false;
             _anim = GetComponent<Animator>();
+            col.enabled = false;
         }
     
         void Update()
@@ -37,11 +39,13 @@ namespace Player
 
         void Hide()
         {
+            col.enabled = false;
             ren.enabled = false;
         }
 
         void Show()
         {
+            col.enabled = true;
             ren.enabled = true;
         }
     }
