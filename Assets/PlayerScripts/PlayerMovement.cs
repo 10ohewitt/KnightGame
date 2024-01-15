@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Player
 {
@@ -8,7 +9,14 @@ namespace Player
         [SerializeField] float moveSpeed = 4f;
         Vector3 forward, right;
         public GameObject canvas;
-    
+        public Rigidbody rb;
+
+        private void Start()
+        {
+            rb = GetComponent<Rigidbody>();
+            anim = GetComponent<Animator>();
+        }
+
         void Update ()
         {
             if (canvas.activeInHierarchy == false)
@@ -26,7 +34,6 @@ namespace Player
                 if (anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Idle_Battle") ||
                     anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.WalkForwardBattle"))
                 {
-                    anim = GetComponent<Animator>();
                     forward = Camera.main.transform.forward;
                     forward.y = 0;
                     forward = Vector3.Normalize(forward);
@@ -40,7 +47,7 @@ namespace Player
 
                         Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
                         transform.forward = heading;
-                        transform.position += heading * moveSpeed * Time.deltaTime;
+                        rb.velocity = (heading * moveSpeed);
                     }
                 }
             }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Player
+namespace PlayerScripts
 {
     public class AttackCollider : MonoBehaviour
     {
@@ -40,7 +40,6 @@ namespace Player
                     transform.position = pos + heading;
                 }
             }
-
         }
     }
 }
