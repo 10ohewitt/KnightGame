@@ -16,6 +16,6 @@ public class StartButton : MonoBehaviour
 
     void OnGui()
     {
-        SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("Scene1", LoadSceneMode.Single);
     }
 }
