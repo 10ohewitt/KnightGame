@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Player
+namespace PlayerScripts
 {
     public class PlayerAttributes : MonoBehaviour
     {
