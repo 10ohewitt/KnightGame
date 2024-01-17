@@ -7,10 +7,12 @@ using UnityEngine;
 public class Dummy : MonoBehaviour
 {
     public Animator anim;
-    private int _health;
+    private int _health = 3;
+    public Collider col;
 
     void Start()
     {
+        col = GetComponent<Collider>();
         anim = GetComponent<Animator>();
     }
     private void OnTriggerEnter(Collider other)
@@ -18,22 +20,15 @@ public class Dummy : MonoBehaviour
         if (other.tag == "Attack")
         {
             _health -= 1;
-            anim.Play("died");
-            Debug.Log("work");
+            if (_health <= 0)
+            {
+                anim.Play("died");
+                col.enabled = false;
+            }
+            else
+            {
+                anim.Play("pushed");
+            }
         }
-        else
-        {
-            Debug.Log("why");
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        Debug.Log("Done");
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        Debug.Log("dam");
     }
 }
