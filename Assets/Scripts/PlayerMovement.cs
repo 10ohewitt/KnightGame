@@ -6,9 +6,10 @@ using UnityEngine.EventSystems;
 
 public class TopDownCharacterMover : MonoBehaviour
 {
+
     [SerializeField] public float speed = 5f;
     private Vector3 _forward;
-    private Vector3 _right;
+       private Vector3 _right;
     private void Start()
     {
         _forward = Camera.main.transform.forward;
@@ -30,7 +31,6 @@ public class TopDownCharacterMover : MonoBehaviour
         Vector3 direction = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         Vector3 rightMovement = _right * speed * Time.deltaTime * Input.GetAxis("Horizontal");
         Vector3 upMovement = _forward * speed * Time.deltaTime * Input.GetAxis("Vertical");
-        
         Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
         
         transform.forward = heading;
@@ -39,3 +39,4 @@ public class TopDownCharacterMover : MonoBehaviour
     }
     
 }
+ 
