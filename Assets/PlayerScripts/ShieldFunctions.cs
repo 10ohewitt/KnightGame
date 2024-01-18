@@ -6,12 +6,15 @@ namespace Player
     {
         public Animator _anim;
         public Renderer ren;
+        public Collider col;
         public GameObject canvas;
         // Start is called before the first frame update
         void Start()
         {
             ren.GetComponent<Renderer>();
+            col.GetComponent<Collider>();
             ren.enabled = false;
+            col.enabled = false;
             _anim = GetComponent<Animator>();
         }
 
@@ -28,11 +31,13 @@ namespace Player
                         _anim.Play("Base Layer.Defend", 0, 0f);
                         _anim.SetBool("Shield", true);
                         ren.enabled = true;
+                        col.enabled = true;
                     }
                     else
                     {
                         _anim.SetBool("Shield", false);
                         ren.enabled = false;
+                        col.enabled = false;
                     }
                 }
 
@@ -42,6 +47,7 @@ namespace Player
                     {
                         _anim.SetBool("Shield", false);
                         ren.enabled = false;
+                        col.enabled = false;
                     }
                 }
             }

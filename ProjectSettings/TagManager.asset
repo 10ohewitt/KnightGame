@@ -8,7 +8,8 @@ TagManager:
   - Wall
   - Attack
   - Enemy
-  - Projectile
+  - EnemyAttack
+  - Shield
   layers:
   - Default
   - TransparentFX
