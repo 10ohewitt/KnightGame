@@ -14,7 +14,7 @@ public class Ghost : MonoBehaviour
     public float dis = 4f;
     public float time = 1f;
     private float _run = 2f;
-    private int health = 6;
+    private int health = 5;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -70,7 +70,6 @@ public class Ghost : MonoBehaviour
         if (other.tag == "Attack")
         {
             health -= 1;
-            Debug.Log(health);
         }
     }
 }
