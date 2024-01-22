@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44287205, g: 0.49203765, b: 0.5717965, a: 1}
+  m_IndirectSpecularColor: {r: 0.44287196, g: 0.49203777, b: 0.5717964, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1688,12 +1688,10 @@ MonoBehaviour:
   health: 3
   hitVFX: {fileID: 0}
   ragdoll: {fileID: 0}
-  attackCD: 3
+  attackCD: 2
   attackRange: 1.2
   aggroRange: 4
-  target: {fileID: 1625597290}
-  speed: 2
-  rb: {fileID: 1698843479}
+  dis: 2.5
 --- !u!195 &1698843474
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1701,7 +1699,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1698843469}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -1769,6 +1767,14 @@ PrefabInstance:
     - target: {fileID: 3196280426804442751, guid: 4921fcd859a7b0c45848c5f54d6077ad, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3843895012215676945, guid: 4921fcd859a7b0c45848c5f54d6077ad, type: 3}
+      propertyPath: m_Radius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3843895012215676945, guid: 4921fcd859a7b0c45848c5f54d6077ad, type: 3}
+      propertyPath: m_ProvidesContacts
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8210207690257594047, guid: 4921fcd859a7b0c45848c5f54d6077ad, type: 3}
       propertyPath: m_Name
