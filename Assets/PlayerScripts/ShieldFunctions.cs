@@ -1,41 +1,48 @@
 using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 namespace Player
 {
     public class Visibility : MonoBehaviour
     {
-        public Animator _anim;
+        public Animator anim;
         public Renderer ren;
         public Collider col;
         public GameObject canvas;
-        // Start is called before the first frame update
+        public Slider shieldSlide;
         void Start()
         {
+            shieldSlide.value = 1;
             ren.GetComponent<Renderer>();
             col.GetComponent<Collider>();
             ren.enabled = false;
             col.enabled = false;
-            _anim = GetComponent<Animator>();
+            anim = GetComponent<Animator>();
         }
-
-        // Update is called once per frame
+        
         void Update()
         {
+            if (shieldSlide.value <= 1f && ren.enabled == false)
+            {
+                shieldSlide.value += Time.deltaTime / 5;
+            }
             if (canvas.activeInHierarchy == false)
             {
-                if (Input.GetMouseButtonDown(1))
+                if (Input.GetMouseButtonDown(1) && shieldSlide.value >= 1)
                 {
-                    if (_anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Idle_Battle") ||
-                        _anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.WalkForwardBattle"))
+                    shieldSlide.value = 0f;
+                    if (anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Idle_Battle") ||
+                        anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.WalkForwardBattle"))
                     {
-                        _anim.Play("Base Layer.Defend", 0, 0f);
-                        _anim.SetBool("Shield", true);
+                        anim.Play("Base Layer.Defend", 0, 0f);
+                        anim.SetBool("Shield", true);
                         ren.enabled = true;
                         col.enabled = true;
                     }
                     else
                     {
-                        _anim.SetBool("Shield", false);
+                        anim.SetBool("Shield", false);
                         ren.enabled = false;
                         col.enabled = false;
                     }
@@ -43,9 +50,9 @@ namespace Player
 
                 if (Input.GetMouseButtonUp(1))
                 {
-                    if (_anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Defend"))
+                    if (anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Defend"))
                     {
-                        _anim.SetBool("Shield", false);
+                        anim.SetBool("Shield", false);
                         ren.enabled = false;
                         col.enabled = false;
                     }
