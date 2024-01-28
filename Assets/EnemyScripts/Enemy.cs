@@ -120,13 +120,6 @@ public class Enemy : MonoBehaviour
     }
 
     //Finally, I add a collider function that calls the FollowPlayer() function when it is within its range
-    void OnCollisionExit(Collider player)
-    {
-        if (player.tag == "Player")
-        {
-            FollowPlayer();
-        }
-    }
 
    
 }
