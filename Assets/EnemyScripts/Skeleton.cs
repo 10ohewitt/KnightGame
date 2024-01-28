@@ -16,11 +16,12 @@ public class Skeleton : MonoBehaviour
     public Renderer legs_ren;
     public Renderer hands_ren;
     private Color color;
-    public float speed = 5f;
+    public float speed = 15f;
     public int health = 7;
     private float cooldown = 0f;
     public float dis = 50f;
     private float count;
+    private bool stop = false;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -57,14 +58,16 @@ public class Skeleton : MonoBehaviour
                 cooldown += Time.deltaTime;
             }
 
-            if (shield.enabled == false)
+            if (shield.enabled == false && stop)
             {
                 rb.constraints = RigidbodyConstraints.None;
+                stop = false;
             }
 
             float distance = Vector3.Distance(player.transform.position, transform.position);
-            if (distance < dis && distance >= 5 && (anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Idle") ||
-                                                    anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.SkelWalk")))
+            if (stop == false && distance < dis && distance >= 5 && 
+                (anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Idle") || 
+                 anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.SkelWalk")))
             {
                 FollowPlayer();
                 anim.SetBool("Walk", true);
@@ -81,6 +84,10 @@ public class Skeleton : MonoBehaviour
                     Invoke("Show", 0.35f);
                     Invoke("Hide", 0.5f);
                 }
+            }
+            else if (distance > dis)
+            {
+                anim.SetBool("Walk", false);
             }
         }
     }
@@ -106,6 +113,8 @@ public class Skeleton : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints.FreezePositionZ | 
                              RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY; 
+            anim.SetBool("Walk", false);
+            stop = true;
         }
     }
 

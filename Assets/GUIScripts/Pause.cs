@@ -11,7 +11,7 @@ public class Pause : MonoBehaviour
     }
     void Update()
     {
-        if (over != enabled)
+        if (over.activeInHierarchy == false)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {

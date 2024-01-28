@@ -5,8 +5,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class StartButton : MonoBehaviour
+public class ResetButton : MonoBehaviour
 {
+
     public Button myButton;
     void Start()
     {
@@ -15,6 +16,7 @@ public class StartButton : MonoBehaviour
 
     void OnGui()
     {
-        SceneManager.LoadScene("Scene1", LoadSceneMode.Single);
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
