@@ -1362,9 +1362,8 @@ MonoBehaviour:
   feet_ren: {fileID: 177670380}
   legs_ren: {fileID: 177670379}
   hands_ren: {fileID: 177670378}
-  speed: 15
+  speed: 12
   health: 7
-  dis: 50
 --- !u!54 &177670386
 Rigidbody:
   m_ObjectHideFlags: 0
