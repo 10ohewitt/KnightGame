@@ -8,9 +8,9 @@ public class Ghost : MonoBehaviour
     public Transform player;
     public Rigidbody rb;
     public Rigidbody proj;
-    public float speed = 2f;
+    private float speed = 9f;
     public float projSpeed = 7f;
-    public float dis = 4f;
+    public float dis = 15f;
     public float time = 1f;
     private float _run = 2f;
     private int health = 5;

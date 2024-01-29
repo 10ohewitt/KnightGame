@@ -288,11 +288,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 498253721416304299, guid: f6ab88624626d1249bd73bcb4a1c7d59, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.15
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 498253721416304299, guid: f6ab88624626d1249bd73bcb4a1c7d59, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 79.16
+      value: 79.19
       objectReference: {fileID: 0}
     - target: {fileID: 498253721416304299, guid: f6ab88624626d1249bd73bcb4a1c7d59, type: 3}
       propertyPath: m_LocalRotation.w
@@ -448,7 +448,7 @@ GameObject:
   - component: {fileID: 56954033}
   m_Layer: 0
   m_Name: SceneMove
-  m_TagString: Untagged
+  m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1362,9 +1362,8 @@ MonoBehaviour:
   feet_ren: {fileID: 177670380}
   legs_ren: {fileID: 177670379}
   hands_ren: {fileID: 177670378}
-  speed: 15
+  speed: 12
   health: 7
-  dis: 50
 --- !u!54 &177670386
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5308,7 +5307,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1250396471}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -7104,9 +7103,8 @@ MonoBehaviour:
   player: {fileID: 251998878}
   rb: {fileID: 1778634804}
   proj: {fileID: 1689527404}
-  speed: 2
   projSpeed: 7
-  dis: 4
+  dis: 10
   time: 1
   ren: {fileID: 1317662402}
 --- !u!1 &1783146566 stripped
