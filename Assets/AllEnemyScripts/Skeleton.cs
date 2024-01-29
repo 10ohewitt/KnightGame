@@ -82,7 +82,7 @@ public class Skeleton : MonoBehaviour
                     cooldown = cooldown % 2f;
                     anim.Play("SkelAttack");
                     Invoke("Show", 0.35f);
-                    Invoke("Hide", 0.5f);
+                    Invoke("Hide", 0.45f);
                 }
             }
             else if (distance > dis)

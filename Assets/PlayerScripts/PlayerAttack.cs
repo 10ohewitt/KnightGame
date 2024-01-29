@@ -32,7 +32,7 @@ namespace Player
                 {
                     _anim.Play("Base Layer.Attack02", 0, 0f);
                     Invoke("Show", 0.3f);
-                    Invoke("Hide", 0.55f);
+                    Invoke("Hide", 0.45f);
                 }
             }
         }
