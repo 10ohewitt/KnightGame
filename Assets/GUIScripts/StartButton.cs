@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class StartButton : MonoBehaviour
 {
-
     public Button myButton;
     void Start()
     {

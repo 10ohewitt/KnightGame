@@ -37,7 +37,7 @@ namespace PlayerScripts
                     transform.forward = heading;
 
                     Vector3 pos = player.transform.position;
-                    transform.position = pos + heading;
+                    transform.position = pos + heading * 5;
                 }
             }
         }
