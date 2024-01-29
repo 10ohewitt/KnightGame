@@ -31,10 +31,10 @@ namespace Player
             {
                 if (Input.GetMouseButtonDown(1) && shieldSlide.value >= 1)
                 {
-                    shieldSlide.value = 0f;
                     if (anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Idle_Battle") ||
                         anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.WalkForwardBattle"))
                     {
+                        shieldSlide.value = 0f;
                         anim.Play("Base Layer.Defend", 0, 0f);
                         anim.SetBool("Shield", true);
                         ren.enabled = true;
