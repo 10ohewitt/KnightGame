@@ -1252,7 +1252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8843755518075579397, guid: 4921fcd859a7b0c45848c5f54d6077ad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.8
       objectReference: {fileID: 0}
     - target: {fileID: 8843755518075579397, guid: 4921fcd859a7b0c45848c5f54d6077ad, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1365,9 +1365,8 @@ MonoBehaviour:
   feet_ren: {fileID: 177670380}
   legs_ren: {fileID: 177670379}
   hands_ren: {fileID: 177670378}
-  speed: 15
+  speed: 13
   health: 7
-  dis: 50
 --- !u!54 &177670386
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1393,7 +1392,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!136 &177670387
 CapsuleCollider:
@@ -1414,10 +1413,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.18936309
-  m_Height: 1.8608464
+  m_Radius: 0.13753204
+  m_Height: 1.8120049
   m_Direction: 1
-  m_Center: {x: 0.3106369, y: 0.8873772, z: 0}
+  m_Center: {x: -0.0054000854, y: 0.9032612, z: -0.029288864}
 --- !u!4 &181017572 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 0a3041dcda597954782f48ac8a97bf33, type: 3}
@@ -7130,10 +7129,9 @@ MonoBehaviour:
   player: {fileID: 251998878}
   rb: {fileID: 1778634804}
   proj: {fileID: 1689527404}
-  speed: 2
-  projSpeed: 7
-  dis: 4
-  time: 1
+  projSpeed: 10
+  dis: 15
+  time: 5
   ren: {fileID: 1317662402}
 --- !u!1 &1783146566 stripped
 GameObject:
