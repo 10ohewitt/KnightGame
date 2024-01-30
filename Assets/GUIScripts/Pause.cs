@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 public class Pause : MonoBehaviour
 {
     public bool _paused = false;
@@ -9,6 +10,7 @@ public class Pause : MonoBehaviour
     {
         canvas.SetActive(false);
     }
+
     void Update()
     {
         if (over.activeInHierarchy == false)

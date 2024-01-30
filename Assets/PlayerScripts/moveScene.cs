@@ -14,7 +14,7 @@ public class moveScene : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (CompareTag("Player"))
+        if (other.tag == "Finish")
         {
             interact.enabled = true;
             if (Input.GetKeyDown(KeyCode.E))
