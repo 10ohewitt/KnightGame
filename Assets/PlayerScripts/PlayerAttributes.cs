@@ -8,6 +8,7 @@ namespace PlayerScripts
     public class PlayerAttributes : MonoBehaviour
     {
         public Slider playerHealth;
+        public Slider heal;
         public Animator anim;
         public Renderer ren;
         public GameObject canvas;
@@ -27,6 +28,7 @@ namespace PlayerScripts
             col = GetComponent<Collider>();
             canvas.SetActive(false);
             playerHealth.value = 1;
+            heal.value = 1;
         }
 
         void Update()
@@ -41,6 +43,16 @@ namespace PlayerScripts
             }
             else
             {
+                if (heal.value < 1)
+                {
+                    heal.value += Time.deltaTime / 20;
+                }
+                else if (Input.GetKey(KeyCode.F) && heal.value >= 1)
+                {
+                    playerHealth.value = 1;
+                    heal.value = 0;
+                }
+
                 if (ren.material.GetColor("_Color") != color)
                 {
                     count += Time.deltaTime;

@@ -5,12 +5,11 @@ using UnityEngine.UI;
 
 public class Quit : MonoBehaviour
 {
-    private Button myButton;
+    public Button myButton;
     
     // Start is called before the first frame update
     void Start()
     {
-        myButton = GetComponent<Button>();
         myButton.onClick.AddListener(OnGUI);
     }
 
