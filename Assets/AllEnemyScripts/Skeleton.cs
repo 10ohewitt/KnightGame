@@ -23,9 +23,12 @@ public class Skeleton : MonoBehaviour
     private float count;
     private bool stop = false;
     private Collider col;
+    private AudioSource aud;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        aud = GetComponent<AudioSource>();
+        aud.Pause();
         color = head_ren.material.GetColor("_Color");
         col = GetComponent<Collider>();
         Hide();
@@ -104,6 +107,7 @@ public class Skeleton : MonoBehaviour
     {
         if (other.tag == "Attack")
         {
+            aud.Play();
             head_ren.material.SetColor("_Color", Color.red);
             body_ren.material.SetColor("_Color", Color.red);
             feet_ren.material.SetColor("_Color", Color.red);

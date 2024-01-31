@@ -6,11 +6,26 @@ using UnityEngine.SceneManagement;
 
 public class moveScene : MonoBehaviour
 {
+    public Canvas interact;
+
+    private void Start()
+    {
+        interact.enabled = false;
+    }
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (other.tag == "Finish")
         {
-            SceneManager.LoadScene("bossFight", LoadSceneMode.Single);
+            interact.enabled = true;
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                SceneManager.LoadScene("bossFight", LoadSceneMode.Single);
+            }
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        interact.enabled = false;
     }
 }

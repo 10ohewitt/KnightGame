@@ -11,6 +11,7 @@ namespace Player
         public Collider col;
         public GameObject canvas;
         public Slider shieldSlide;
+        public AudioSource aud;
         void Start()
         {
             shieldSlide.value = 1;
@@ -35,6 +36,7 @@ namespace Player
                         anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.WalkForwardBattle"))
                     {
                         shieldSlide.value = 0f;
+                        aud.Play();
                         anim.Play("Base Layer.Defend", 0, 0f);
                         anim.SetBool("Shield", true);
                         ren.enabled = true;

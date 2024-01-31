@@ -9,9 +9,9 @@ public class Ghost : MonoBehaviour
     public Rigidbody rb;
     public Rigidbody proj;
     private float speed = 9f;
-    public float projSpeed = 7f;
+    public float projSpeed = 10f;
     public float dis = 15f;
-    public float time = 1f;
+    public float time = 5f;
     private float _run = 2f;
     private int health = 5;
     public Renderer ren;
