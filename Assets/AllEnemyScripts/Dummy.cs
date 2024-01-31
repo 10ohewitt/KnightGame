@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Dummy_old : MonoBehaviour
+public class Dummy : MonoBehaviour
 {
     public Animator anim;
     private int _health = 3;

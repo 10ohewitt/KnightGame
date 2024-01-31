@@ -16,16 +16,18 @@ public class Skeleton : MonoBehaviour
     public Renderer legs_ren;
     public Renderer hands_ren;
     private Color color;
-    public float speed = 15f;
+    public float speed = 12f;
     public int health = 7;
     private float cooldown = 0f;
-    public float dis = 50f;
+    private float dis = 35f;
     private float count;
     private bool stop = false;
+    private Collider col;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         color = head_ren.material.GetColor("_Color");
+        col = GetComponent<Collider>();
         Hide();
         
     }
@@ -47,13 +49,13 @@ public class Skeleton : MonoBehaviour
         if (health <= 0)
         {
             anim.Play("Skeleton@Death01_A");
-            Invoke("Death", 2);
+            col.enabled = false;
         }
         else
         {
             Vector3 adjust = new Vector3(player.position.x, transform.position.y, player.position.z);
             transform.LookAt(adjust);
-            if (cooldown <= 2f)
+            if (cooldown <= 2.5f)
             {
                 cooldown += Time.deltaTime;
             }
@@ -77,12 +79,12 @@ public class Skeleton : MonoBehaviour
             else if (distance < 5)
             {
                 anim.SetBool("Walk", false);
-                if (cooldown >= 2f)
+                if (cooldown >= 2.5f)
                 {
                     cooldown = cooldown % 2f;
                     anim.Play("SkelAttack");
                     Invoke("Show", 0.35f);
-                    Invoke("Hide", 0.5f);
+                    Invoke("Hide", 0.45f);
                 }
             }
             else if (distance > dis)
@@ -143,10 +145,5 @@ public class Skeleton : MonoBehaviour
     void Show()
     {
         attackCol.enabled = true;
-    }
-
-    void Death()
-    {
-        Destroy(gameObject);
     }
 }
