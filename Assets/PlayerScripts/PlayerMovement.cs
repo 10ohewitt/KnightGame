@@ -6,7 +6,7 @@ namespace Player
     public class TopDownCharacterMover : MonoBehaviour
     {
         public Animator anim;
-        [SerializeField] float moveSpeed = 4f;
+        private float moveSpeed = 20f;
         Vector3 forward, right;
         public GameObject canvas;
         public Rigidbody rb;
@@ -19,6 +19,15 @@ namespace Player
 
         void Update ()
         {
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                moveSpeed = 30f;
+            }
+
+            if (Input.GetKeyUp(KeyCode.LeftShift))
+            {
+                moveSpeed = 20f;
+            }
             if (canvas.activeInHierarchy == false)
             {
                 if (Input.GetAxisRaw("Horizontal") == 0f && Input.GetAxisRaw("Vertical") == 0f)
