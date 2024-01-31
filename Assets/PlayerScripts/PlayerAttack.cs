@@ -12,7 +12,6 @@ namespace Player
         void Start()
         {
             ren.GetComponent<Renderer>();
-            ren.enabled = false;
             aud.Pause();
             _anim = GetComponent<Animator>();
             col.enabled = false;
@@ -28,7 +27,7 @@ namespace Player
         void Attack()
         {
             if (Input.GetMouseButtonDown(0))
-            { 
+            {
                 if (_anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Idle_Battle") ||
                     _anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.WalkForwardBattle"))
                 {
@@ -43,13 +42,11 @@ namespace Player
         void Hide()
         {
             col.enabled = false;
-            ren.enabled = false;
         }
 
         void Show()
         {
             col.enabled = true;
-            ren.enabled = true;
         }
     }
 }
