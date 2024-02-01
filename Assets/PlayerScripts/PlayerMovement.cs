@@ -19,9 +19,10 @@ namespace Player
 
         void Update ()
         {
+            rb.AddForce(0, -100, 0);
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
-                moveSpeed = 30f;
+                moveSpeed = 27f;
             }
 
             if (Input.GetKeyUp(KeyCode.LeftShift))
