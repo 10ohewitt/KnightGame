@@ -15,14 +15,14 @@ namespace PlayerScripts
         private Collider col;
         private Color color;
         private float count = 0;
-        public AudioSource audioData;
+        public AudioSource damage;
+        public AudioSource healing;
         private Rigidbody rb;
         public Renderer shield;
 
         private void Start()
         {
-            audioData = GetComponent<AudioSource>();
-            audioData.Pause();
+            healing.Stop();
             rb = GetComponent<Rigidbody>();
             color = ren.material.GetColor("_Color");
             col = GetComponent<Collider>();
@@ -49,6 +49,7 @@ namespace PlayerScripts
                 }
                 else if (Input.GetKey(KeyCode.F) && heal.value >= 1)
                 {
+                    healing.Play();
                     playerHealth.value = 1;
                     heal.value = 0;
                 }
@@ -71,7 +72,7 @@ namespace PlayerScripts
             {
                 if (other.tag == "EnemyAttack")
                 {
-                    audioData.Play();
+                    damage.Play();
                     ren.material.SetColor("_Color", Color.red);
                     playerHealth.value -= 0.3f;
                 }
