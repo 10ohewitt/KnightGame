@@ -6252,7 +6252,7 @@ Transform:
   m_GameObject: {fileID: 1164370750}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7123102, y: -0.17481029, z: 0.1908629, w: 0.652401}
-  m_LocalPosition: {x: -12.68, y: 26.5, z: 36.79}
+  m_LocalPosition: {x: -160, y: 895, z: 40}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6348,7 +6348,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1328023254706044480, guid: 257c304c754d3b247a51ef5bea7a90d0, type: 3}
       propertyPath: m_Name
-      value: FemaleCharacterPolyart
+      value: Princess
       objectReference: {fileID: 0}
     - target: {fileID: 1328023254706044480, guid: 257c304c754d3b247a51ef5bea7a90d0, type: 3}
       propertyPath: m_TagString
