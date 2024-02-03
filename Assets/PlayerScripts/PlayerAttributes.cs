@@ -12,6 +12,7 @@ namespace PlayerScripts
         public Animator anim;
         public Renderer ren;
         public GameObject canvas;
+        public AudioSource death;
         private Collider col;
         private Color color;
         private float count = 0;
@@ -19,6 +20,7 @@ namespace PlayerScripts
         public AudioSource healing;
         private Rigidbody rb;
         public Renderer shield;
+        private bool dead = false;
 
         private void Start()
         {
@@ -35,11 +37,17 @@ namespace PlayerScripts
         {
             if (playerHealth.value <= 0)
             {
+                if (!dead)
+                {
+                    death.Play();
+                    dead = true;
+                }
                 canvas.SetActive(true);
                 anim.Play("Die");
-                Invoke("Stop", 2);
+                col.enabled = false;
                 rb.constraints = RigidbodyConstraints.FreezePositionZ | 
                                  RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY;
+                Invoke("Stop", 2);
             }
             else
             {

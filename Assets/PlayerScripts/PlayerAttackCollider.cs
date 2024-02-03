@@ -7,7 +7,7 @@ namespace PlayerScripts
         public GameObject player;
         public Animator anim;
         Vector3 forward, right;
-        float moveSpeed = 4f;
+        float moveSpeed = 20f;
         public GameObject canvas;
 
         private void Start()
@@ -17,6 +17,14 @@ namespace PlayerScripts
 
         public void Update()
         {
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                moveSpeed = 27f;
+            }
+            if (Input.GetKeyUp(KeyCode.LeftShift))
+            {
+                moveSpeed = 20f;
+            }
             if (canvas.activeInHierarchy == false && 
                 (anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Idle_Battle") ||
                  anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.WalkForwardBattle")))
