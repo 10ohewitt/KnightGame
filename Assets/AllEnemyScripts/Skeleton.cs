@@ -36,6 +36,7 @@ public class Skeleton : MonoBehaviour
     }
     void Update()
     {
+        rb.AddForce(0, -100, 0);
         if (head_ren.material.GetColor("_Color") != color)
         {
             count += Time.deltaTime;

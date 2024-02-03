@@ -12,17 +12,19 @@ namespace PlayerScripts
         public Animator anim;
         public Renderer ren;
         public GameObject canvas;
+        public AudioSource death;
         private Collider col;
         private Color color;
         private float count = 0;
-        public AudioSource audioData;
+        public AudioSource damage;
+        public AudioSource healing;
         private Rigidbody rb;
         public Renderer shield;
+        private bool dead = false;
 
         private void Start()
         {
-            audioData = GetComponent<AudioSource>();
-            audioData.Pause();
+            healing.Stop();
             rb = GetComponent<Rigidbody>();
             color = ren.material.GetColor("_Color");
             col = GetComponent<Collider>();
@@ -35,11 +37,17 @@ namespace PlayerScripts
         {
             if (playerHealth.value <= 0)
             {
+                if (!dead)
+                {
+                    death.Play();
+                    dead = true;
+                }
                 canvas.SetActive(true);
                 anim.Play("Die");
-                Invoke("Stop", 2);
+                col.enabled = false;
                 rb.constraints = RigidbodyConstraints.FreezePositionZ | 
                                  RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY;
+                Invoke("Stop", 2);
             }
             else
             {
@@ -49,6 +57,7 @@ namespace PlayerScripts
                 }
                 else if (Input.GetKey(KeyCode.F) && heal.value >= 1)
                 {
+                    healing.Play();
                     playerHealth.value = 1;
                     heal.value = 0;
                 }
@@ -71,7 +80,7 @@ namespace PlayerScripts
             {
                 if (other.tag == "EnemyAttack")
                 {
-                    audioData.Play();
+                    damage.Play();
                     ren.material.SetColor("_Color", Color.red);
                     playerHealth.value -= 0.3f;
                 }
