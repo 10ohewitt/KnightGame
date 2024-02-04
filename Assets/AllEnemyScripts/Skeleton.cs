@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Skeleton : MonoBehaviour
@@ -54,6 +55,7 @@ public class Skeleton : MonoBehaviour
         {
             anim.Play("Skeleton@Death01_A");
             col.enabled = false;
+            transform.gameObject.tag = "Untagged";
         }
         else
         {
