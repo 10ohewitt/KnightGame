@@ -5,6 +5,7 @@ namespace PlayerScripts
     public class AttackCollider : MonoBehaviour
     {
         public GameObject player;
+        
         public Animator anim;
         Vector3 forward, right;
         float moveSpeed = 20f;

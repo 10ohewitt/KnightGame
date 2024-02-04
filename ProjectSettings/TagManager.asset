@@ -8,9 +8,14 @@ TagManager:
   - Wall
   - Attack
   - Enemy
+<<<<<<< Updated upstream
   - EnemyAttack
   - Shield
   - Princess
+=======
+  - Projectile
+  - enemy
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
