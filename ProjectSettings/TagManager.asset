@@ -12,6 +12,8 @@ TagManager:
   - Shield
   - Princess
   - Key
+  - Projectile
+  - enemy
   layers:
   - Default
   - TransparentFX
