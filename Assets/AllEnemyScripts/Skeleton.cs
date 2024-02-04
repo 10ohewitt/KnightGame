@@ -144,7 +144,10 @@ public class Skeleton : MonoBehaviour
 
     void Hide()
     {
-        attackCol.enabled = false;
+        if (attackCol.enabled)
+        {
+            attackCol.enabled = false;
+        }
     }
 
     void Show()
