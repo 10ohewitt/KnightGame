@@ -19,7 +19,7 @@ public class moveScene : MonoBehaviour
             interact.enabled = true;
             if (Input.GetKeyDown(KeyCode.E))
             {
-                SceneManager.LoadScene("bossFight", LoadSceneMode.Single);
+                SceneManager.LoadScene("dragon", LoadSceneMode.Single);
             }
         }
     }
